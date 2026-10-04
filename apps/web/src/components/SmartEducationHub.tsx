@@ -32,15 +32,15 @@ export const SmartEducationHub: React.FC = () => {
   const [tutorLoading, setTutorLoading] = useState(false);
   const [tutorSpeechActive, setTutorSpeechActive] = useState(false);
   const [tutorResponse, setTutorResponse] = useState<any>({
-    response: "🐧 Namaste young explorer! I am Dr. Penguin, your AI Polar Mentor powered by live Groq LLMs! Did you know Antarctica is not just the coldest place on Earth, but also the windiest and driest desert? Ask me ANY question about glaciers, penguins, auroras, or India's brave scientists at Maitri and Bharati, and I will answer you live!",
-    keyConcepts: ["Polar Desert", "Maitri & Bharati", "Extreme Temperatures", "Live Groq AI"],
+    response: "🐧 Namaste young explorer! I am Dr. Penguin, your AI Polar Mentor. Did you know Antarctica is not just the coldest place on Earth, but also the windiest and driest desert? Ask me ANY question about glaciers, penguins, auroras, or India's brave scientists at Maitri and Bharati, and I will answer you!",
+    keyConcepts: ["Polar Desert", "Maitri & Bharati", "Extreme Temperatures", "Cryosphere Science"],
     suggestedQuestions: [
       "Why is glacier ice blue?",
       "How do emperor penguins survive -50°C?",
       "How does Antarctic ice control the Indian monsoon?",
       "What do scientists at Bharati station do during 6 months of dark winter?"
     ],
-    modelUsed: "Groq (openai/gpt-oss-120b Live LLM)"
+    modelUsed: "PolarConnect AI"
   });
 
   // Quiz State
@@ -311,9 +311,9 @@ export const SmartEducationHub: React.FC = () => {
                   </div>
                   <div>
                     <div className="flex items-center space-x-2">
-                      <h4 className="text-xs font-bold text-[var(--foreground)] uppercase tracking-wider">Dr. Penguin is Consulting Live LLM...</h4>
+                      <h4 className="text-xs font-bold text-[var(--foreground)] uppercase tracking-wider">Dr. Penguin is preparing your answer…</h4>
                       <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-[var(--card)] text-emerald-700 border border-emerald-500/30 animate-pulse font-bold">
-                        Groq 120B Live
+                        PolarConnect AI
                       </span>
                     </div>
                     <p className="text-[11px] text-[var(--muted-foreground)] mt-0.5">
@@ -348,7 +348,7 @@ export const SmartEducationHub: React.FC = () => {
                     <span>Mentor Explanation ({tutorLevel.toUpperCase()})</span>
                     <span className="px-1.5 py-0.5 rounded text-[10px] font-mono bg-[var(--card)] text-emerald-700 border border-emerald-500/30 flex items-center space-x-1 font-semibold">
                       <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 inline-block mr-1" />
-                      {tutorResponse.modelUsed || 'Groq (openai/gpt-oss-120b Live LLM)'}
+                      PolarConnect AI
                     </span>
                   </span>
                   <button
@@ -466,7 +466,7 @@ export const SmartEducationHub: React.FC = () => {
                           response: item.answer,
                           keyConcepts: ["Session History", item.level],
                           suggestedQuestions: tutorResponse.suggestedQuestions,
-                          modelUsed: item.model || 'Groq (openai/gpt-oss-120b Live LLM)'
+                          modelUsed: item.model || 'PolarConnect AI'
                         });
                       }}
                       className="w-full text-left p-2.5 rounded-[var(--radius)] bg-[var(--secondary)]/40 hover:bg-[var(--secondary)] border border-[var(--border)] text-xs text-[var(--foreground)] transition-all flex items-center justify-between group cursor-pointer"

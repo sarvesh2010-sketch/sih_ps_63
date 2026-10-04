@@ -120,9 +120,20 @@ export const Navbar: React.FC<NavbarProps> = ({
           className="brand"
           aria-label="PolarConnect home"
         >
-          <span className="brand-symbol" aria-hidden="true">
-            <i /><i /><i />
-          </span>
+          <svg
+            width="32" height="32" viewBox="0 0 64 64" fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+            style={{ flexShrink: 0 }}
+          >
+            <circle cx="32" cy="32" r="28" stroke="currentColor" strokeWidth="2.5" fill="none"/>
+            <ellipse cx="32" cy="32" rx="28" ry="6.5" stroke="currentColor" strokeWidth="1.8" fill="none"/>
+            <ellipse cx="32" cy="20" rx="21" ry="4.5" stroke="currentColor" strokeWidth="1.3" fill="none"/>
+            <ellipse cx="32" cy="44" rx="21" ry="4.5" stroke="currentColor" strokeWidth="1.3" fill="none"/>
+            <line x1="32" y1="4" x2="32" y2="60" stroke="currentColor" strokeWidth="1.8"/>
+            <path d="M 32 4 Q 11 32 32 60" stroke="currentColor" strokeWidth="1.2" fill="none"/>
+            <path d="M 32 4 Q 53 32 32 60" stroke="currentColor" strokeWidth="1.2" fill="none"/>
+          </svg>
           <div>
             <div className="font-extrabold text-[15px] tracking-[0.035em] leading-none text-[var(--foreground)]">
               POLAR<span className="brand-light">CONNECT</span>

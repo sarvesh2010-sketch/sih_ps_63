@@ -1097,3 +1097,407 @@ img { display: block; max-width: 100%; }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--muted-foreground);
 }
+
+/* =========================================================================
+   POLARCONNECT KNOWLEDGE HUB — SIH LANDING PAGE
+   ========================================================================= */
+
+.pc-landing {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+/* ── Welcome Band ──────────────────────────────────────────────────────────── */
+.pc-welcome-band {
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(135deg, oklch(0.97 0.012 218) 0%, oklch(0.99 0.004 220) 100%);
+  padding: 36px 0 28px;
+}
+
+.pc-welcome-inner {
+  width: min(100% - 80px, 1080px);
+  margin-inline: auto;
+}
+
+.pc-sih-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #1e6fa8;
+  background: #1e6fa810;
+  border: 1px solid #1e6fa830;
+  border-radius: 999px;
+  padding: 4px 12px;
+  margin-bottom: 16px;
+}
+
+.pc-sih-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #1e6fa8;
+  animation: pc-pulse 2s infinite;
+}
+
+@keyframes pc-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.pc-welcome-title {
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--foreground);
+  margin: 0 0 10px;
+  letter-spacing: -0.02em;
+}
+
+.pc-brand-accent {
+  color: #1e6fa8;
+}
+
+.pc-welcome-sub {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--muted-foreground);
+  max-width: 580px;
+  margin: 0 0 20px;
+}
+
+.pc-badges-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pc-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--muted-foreground);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 4px 11px;
+  white-space: nowrap;
+}
+
+/* ── Two CTA Cards ─────────────────────────────────────────────────────────── */
+.pc-cta-section {
+  padding: 32px 0;
+  border-bottom: 1px solid var(--border);
+  background: var(--background);
+}
+
+.pc-cta-inner {
+  width: min(100% - 80px, 1080px);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+@media (max-width: 680px) {
+  .pc-cta-inner { grid-template-columns: 1fr; }
+}
+
+.pc-cta-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  padding: 22px 22px 20px;
+  background: var(--card);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.pc-cta-card:hover {
+  box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+  transform: translateY(-2px);
+}
+
+.pc-cta-card-top {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.pc-cta-card-icon-wrap {
+  flex: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pc-icon-orange {
+  background: #e87c0015;
+  color: #c86800;
+}
+
+.pc-icon-dark {
+  background: oklch(0.22 0.03 220 / 0.12);
+  color: var(--foreground);
+}
+
+.pc-cta-card-body h2 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--foreground);
+  margin: 0 0 6px;
+}
+
+.pc-cta-card-body p {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--muted-foreground);
+  margin: 0;
+}
+
+.pc-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border: none;
+  border-radius: 9px;
+  padding: 11px 20px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: filter 0.18s, transform 0.18s;
+  letter-spacing: 0.01em;
+}
+
+.pc-cta-btn:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+}
+
+.pc-cta-btn-orange {
+  background: #c86800;
+  color: #fff;
+  box-shadow: 0 2px 10px #c8680030;
+}
+
+.pc-cta-btn-dark {
+  background: oklch(0.22 0.03 220);
+  color: #fff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.18);
+}
+
+/* ── Key Modules Grid ──────────────────────────────────────────────────────── */
+.pc-modules-section {
+  padding: 36px 0 40px;
+  border-bottom: 1px solid var(--border);
+  background: var(--background);
+}
+
+.pc-modules-inner {
+  width: min(100% - 80px, 1080px);
+  margin-inline: auto;
+}
+
+.pc-modules-heading {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--foreground);
+  margin: 0 0 22px;
+  letter-spacing: -0.01em;
+}
+
+.pc-modules-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 580px) {
+  .pc-modules-grid { grid-template-columns: 1fr; }
+}
+
+.pc-module-card {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 0;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  text-align: left;
+  transition: box-shadow 0.2s, transform 0.2s;
+  padding: 0;
+}
+
+.pc-module-card:hover {
+  box-shadow: 0 8px 28px rgba(0,0,0,0.09);
+  transform: translateY(-2px);
+}
+
+.pc-module-thumb {
+  width: 110px;
+  flex: none;
+  overflow: hidden;
+  position: relative;
+}
+
+.pc-module-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s;
+}
+
+.pc-module-card:hover .pc-module-thumb img {
+  transform: scale(1.05);
+}
+
+.pc-module-text {
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex: 1;
+}
+
+.pc-module-icon-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 2px;
+}
+
+.pc-module-icon-wrap {
+  width: 26px;
+  height: 26px;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+
+.pc-module-text h3 {
+  font-size: 13px;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.pc-module-text p {
+  font-size: 12px;
+  line-height: 1.55;
+  color: var(--muted-foreground);
+  margin: 0;
+}
+
+.pc-module-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11.5px;
+  font-weight: 600;
+  margin-top: auto;
+  padding-top: 6px;
+}
+
+/* ── How It Works Flow ─────────────────────────────────────────────────────── */
+.pc-flow-section {
+  padding: 40px 0 56px;
+  background: oklch(0.972 0.008 220);
+}
+
+.pc-flow-inner {
+  width: min(100% - 80px, 1080px);
+  margin-inline: auto;
+}
+
+.pc-flow-heading {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--foreground);
+  margin: 0 0 28px;
+  letter-spacing: -0.01em;
+}
+
+.pc-flow-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 680px) {
+  .pc-flow-steps { grid-template-columns: 1fr; }
+}
+
+.pc-flow-step {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-top: 3px solid;
+  border-radius: 12px;
+  padding: 20px 20px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: box-shadow 0.2s;
+}
+
+.pc-flow-step:hover {
+  box-shadow: 0 6px 20px rgba(0,0,0,0.07);
+}
+
+.pc-flow-num {
+  font-size: 28px;
+  font-weight: 900;
+  line-height: 1;
+  opacity: 0.18;
+  letter-spacing: -0.04em;
+  display: block;
+}
+
+.pc-flow-step h3 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--foreground);
+  margin: 0;
+}
+
+.pc-flow-step p {
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--muted-foreground);
+  margin: 0;
+}
+
+.pc-flow-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 700;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  margin-top: auto;
+  padding-top: 6px;
+  transition: gap 0.18s;
+}
+
+.pc-flow-link:hover {
+  gap: 8px;
+}

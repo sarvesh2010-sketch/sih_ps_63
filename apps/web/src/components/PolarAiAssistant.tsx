@@ -196,7 +196,7 @@ export const PolarAiAssistant: React.FC<PolarAiAssistantProps> = ({ userRole, on
         }
       ],
       groundingConfidence: 99,
-      modelUsed: "Groq (openai/gpt-oss-120b Live LLM)",
+      modelUsed: "PolarConnect Intelligence Engine",
       timestamp: "Just now"
     }
   ]);
@@ -299,6 +299,7 @@ export const PolarAiAssistant: React.FC<PolarAiAssistantProps> = ({ userRole, on
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ role: userRole })
       });
+      // Note: /api/benchmarks/run is now registered in the API server (was 404 before)
       const data = await res.json();
       if (data.success) {
         setBenchmarkReport(data.data);
@@ -331,7 +332,7 @@ export const PolarAiAssistant: React.FC<PolarAiAssistantProps> = ({ userRole, on
           <div className="flex items-center gap-2">
             <span className="flex items-center gap-2 px-3.5 py-1.5 rounded-full text-[11px] font-mono bg-[var(--card)] text-emerald-700 border border-emerald-500/30 font-bold shadow-2xs">
               <span className="w-2 h-2 rounded-full bg-emerald-600 animate-pulse" />
-              Groq 120B Live • RAG
+              PolarAI • Grounded RAG
             </span>
           </div>
         </div>
@@ -374,7 +375,7 @@ export const PolarAiAssistant: React.FC<PolarAiAssistantProps> = ({ userRole, on
                             <span className="text-[11px] font-bold text-[var(--foreground)]">PolarAI</span>
                             {msg.modelUsed && (
                               <span className="text-[10px] text-[var(--muted-foreground)] font-mono hidden sm:inline">
-                                · {msg.modelUsed.includes('Groq') ? 'Groq 120B' : msg.modelUsed.substring(0, 28)}
+                                · PolarConnect AI
                               </span>
                             )}
                           </div>
@@ -510,14 +511,20 @@ export const PolarAiAssistant: React.FC<PolarAiAssistantProps> = ({ userRole, on
             <input
               type="text"
               value={queryInput}
-              onChange={(e) => setQueryInput(e.target.value)}
+              onChange={(e) => setQueryInput(e.target.value.slice(0, 500))}
               onKeyDown={(e) => e.key === 'Enter' && handleSendQuery(queryInput)}
               placeholder="Ask about expeditions, stations, ice cores, policies..."
+              maxLength={500}
               className="w-full bg-[var(--card)] border border-[var(--border)] rounded-xl pl-5 pr-14 py-3.5
                 text-sm text-[var(--foreground)] placeholder-[var(--muted-foreground)]
                 focus:outline-none focus:border-[var(--ring)]
                 transition-all shadow-xs"
             />
+            {queryInput.length > 400 && (
+              <span className="absolute left-4 -bottom-5 text-[10px] font-mono text-[var(--muted-foreground)]">
+                {queryInput.length}/500
+              </span>
+            )}
             <button
               disabled={loading || !queryInput.trim()}
               onClick={() => handleSendQuery(queryInput)}

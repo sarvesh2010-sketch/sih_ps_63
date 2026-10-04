@@ -16,8 +16,14 @@ import {
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Path to seed data
-const seedPath = path.resolve(__dirname, '../../../../infra/seed/seed-data.json');
+// Robust seed path — works locally (monorepo) and on cloud (Render/Railway)
+const SEED_CANDIDATES = [
+  path.resolve(__dirname, '../../../../infra/seed/seed-data.json'), // local monorepo
+  path.resolve(__dirname, '../../../infra/seed/seed-data.json'),    // alt depth
+  path.resolve(process.cwd(), 'infra/seed/seed-data.json'),         // cwd-relative
+  path.resolve(__dirname, '../seed-data.json'),                      // bundled alongside dist
+];
+const seedPath = SEED_CANDIDATES.find(p => fs.existsSync(p)) || SEED_CANDIDATES[0];
 
 class DataStore {
   private stations: StationTelemetry[] = [];
