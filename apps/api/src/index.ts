@@ -43,7 +43,7 @@ app.get('/api/health', (_req, res) => {
       groundingSource: 'NCPOR / NPDC verified corpus'
     }
   });
-};
+});
 
 // =====================================================================
 // FIX: Missing Benchmark Route (was causing 404 on frontend)
